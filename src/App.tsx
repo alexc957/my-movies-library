@@ -2,16 +2,19 @@ import { ChakraProvider } from "@chakra-ui/react";
 import React from "react";
 import First from "./components/First";
 import Second from "./components/Second";
-import { Button, ButtonGroup } from "@chakra-ui/react";
+import { Button } from "@chakra-ui/react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import About from "./pages/About";
 export default function App() {
   return (
     <ChakraProvider>
-      <div>
-        <Button colorScheme="blue">Button</Button>
-        <p>hello world</p>
-        <First />
-        <Second />
-      </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="about" element={<About />} />
+        </Routes>
+      </BrowserRouter>
     </ChakraProvider>
   );
 }
