@@ -11,6 +11,7 @@
     "@webpack-cli/generators": "^2.5.0",
     "babel-loader": "^8.2.5",
     "css-loader": "^6.7.1",
+    "cypress": "^10.3.1",
     "html-webpack-plugin": "^5.5.0",
     "jest": "^28.1.3",
     "jest-environment-jsdom": "^28.1.3",
@@ -34,7 +35,10 @@
     "watch": "webpack --watch",
     "serve": "webpack serve",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "serve:locally": "webpack serve --host 0.0.0.0",
+    "cypress:open": "npx cypress open",
+    "cypress:run":"npx cypress run"
   },
   "dependencies": {
     "@babel/preset-typescript": "^7.18.6",

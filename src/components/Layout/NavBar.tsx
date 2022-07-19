@@ -14,7 +14,7 @@ export default function NavBar() {
         My Movie
       </Link>
 
-      <Link mx={"4"} color={"white"} href="/about">
+      <Link mx={"4"} color={"white"} data-cy="about" href="/about">
         About
       </Link>
     </Flex>

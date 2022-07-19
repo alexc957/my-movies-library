@@ -2,9 +2,8 @@ import React from "react";
 
 import { render, screen } from "@testing-library/react";
 
-import App from "../App";
 import { ChakraProvider } from "@chakra-ui/react";
-import Home from "../pages/Home";
+
 import First from "../components/First";
 import Layout from "../components/Layout/Layout";
 import theme from "../theme";
