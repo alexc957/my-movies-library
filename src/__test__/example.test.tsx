@@ -23,8 +23,8 @@ describe("test ", () => {
       expect(helloElement).toBeInTheDocument();
     });
   });
-  describe("when rendering a component in a isolated way", () => {
-    it("must be a hello world text", () => {
+  describe("when rendering a component in an isolated way", () => {
+    it("must exist a button first text", () => {
       render(
         <ChakraWrapper>
           <First />

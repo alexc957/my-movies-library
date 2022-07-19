@@ -1,6 +1,6 @@
 module.exports = {
 
-    // The root of your source code, typically /src
+    // The root of your source code, typically /src, jest will search the test files here 
   
     // `<rootDir>` is a token Jest substitutes
   
