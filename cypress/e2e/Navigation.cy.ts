@@ -1,3 +1,5 @@
+/// <reference types="cypress" />
+
 describe("when  navigating between the home and about", () => {
   before(() => {
     cy.visit("http://localhost:8080");

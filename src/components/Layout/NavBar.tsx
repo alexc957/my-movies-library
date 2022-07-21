@@ -4,14 +4,13 @@ import React from "react";
 export default function NavBar() {
   return (
     <Flex
-      bg={"primary"}
       alignItems={"center"}
       height="100%"
       role={"navigation"}
       justifyContent="space-between"
     >
       <Link color={"white"} href="/">
-        My Movie
+        My Movie Database
       </Link>
 
       <Link mx={"4"} color={"white"} data-cy="about" href="/about">

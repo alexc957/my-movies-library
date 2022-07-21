@@ -12,14 +12,14 @@ import Layout from "./components/Layout/Layout";
 export default function App() {
   return (
     <ChakraProvider theme={theme}>
-      <Layout>
-        <BrowserRouter>
+      <BrowserRouter>
+        <Layout>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="about" element={<About />} />
           </Routes>
-        </BrowserRouter>
-      </Layout>
+        </Layout>
+      </BrowserRouter>
     </ChakraProvider>
   );
 }
