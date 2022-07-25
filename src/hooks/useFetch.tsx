@@ -16,7 +16,7 @@ export default function useFetch<T>(url: string): FetchReturn<T | null> {
         const parsedResponse = await response.json();
         setData(parsedResponse as T);
       } catch (e) {
-        alert("we could not get the data");
+        // alert("we could not get the data");
         console.warn("there was an error while getting the data", e);
       }
       setLoading(false);
