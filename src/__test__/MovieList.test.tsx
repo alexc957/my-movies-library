@@ -25,7 +25,7 @@ describe("Movie list", () => {
       );
 
       const titleEl = screen.getAllByLabelText("movie-item");
-      expect(titleEl).toHaveLength(20);
+      expect(titleEl).toHaveLength(10);
     });
   });
 });

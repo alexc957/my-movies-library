@@ -10,13 +10,19 @@ export default function MovieCard({
 }) {
   return (
     <Box
-      width={"2xl"}
+      width={"220px"}
       border={"2px"}
       borderRadius="md"
       borderColor={"primarys"}
+      data-testid={label}
+      display="flex"
+      flexDirection="column"
+      alignContent={"center"}
+      alignItems="center"
+      mx={"2"}
     >
       <img
-        aria-label={label}
+        width={"200px"}
         src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
       />
       <p>{movie.title}</p>

@@ -5,18 +5,23 @@ import MovieCard from "./MovieCard";
 type MoviesListProps = {
   movies: IMovieResult[];
   label: string;
+  title?: string;
 };
-export default function MovieList({ movies, label }: MoviesListProps) {
+export default function MovieList({ movies, label, title }: MoviesListProps) {
   return (
-    <Box
-      width={"200"}
-      overflowX={"scroll"}
-      display="flex"
-      flexDirection={"row"}
-    >
-      {movies.slice(0, 10).map((movie, index) => {
-        return <MovieCard movie={movie} key={index} label={label} />;
-      })}
+    <Box>
+      <h3>{title}</h3>
+      <Box
+        display="flex"
+        overflow={"scroll"}
+        flexDirection={"row"}
+        flexWrap="wrap"
+        mb="2"
+      >
+        {movies.slice(0, 5).map((movie, index) => {
+          return <MovieCard movie={movie} key={index} label={label} />;
+        })}
+      </Box>
     </Box>
   );
 }

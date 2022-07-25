@@ -11,22 +11,22 @@ describe("Home page", () => {
     </ChakraProvider>
   );
   describe("when visiting the top ten movies section", () => {
-    it("must be a most pouplar movies section with 20 elements", () => {
-      const topTenEls = screen.findAllByLabelText("most-popular-item");
-      expect(topTenEls).toHaveLength(10);
+    it("must be a most pouplar movies section with 20 elements", async () => {
+      const topTenEls = await screen.findByText("Upcoming Movies");
+      expect(topTenEls).toBeInTheDocument();
     });
   });
 
   describe("when visiting the top ten latest movies", () => {
-    it("must be latests movies section with 20 elements", () => {
-      const latestMovies = screen.findAllByLabelText("latest");
-      expect(latestMovies).toHaveLength(10);
+    it("must be latests movies section with 20 elements", async () => {
+      const latestMovies = await screen.findByText("Latest Movies");
+      expect(latestMovies).toBeInTheDocument();
     });
   });
   describe("when visiting the now playing movies section", () => {
-    it("must be an array of the now playing movies", () => {
-      const latestMovies = screen.findAllByLabelText("now-playing");
-      expect(latestMovies).toHaveLength(10);
+    it("must be an array of the now playing movies", async () => {
+      const latestMovies = await screen.findByText("Now Playing");
+      expect(latestMovies).toBeInTheDocument();
     });
   });
 

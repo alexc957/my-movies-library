@@ -26,12 +26,26 @@ export default function MoviesSection() {
       alignItems="center"
     >
       {upcomingResults && (
-        <MovieList movies={upcomingResults.results} label="most-popular-item" />
+        <MovieList
+          movies={upcomingResults.results}
+          label="most-popular-item"
+          title="Upcoming Movies"
+        />
       )}
       {nowPlayingMovies && (
-        <MovieList movies={nowPlayingMovies.results} label="now-playing" />
+        <MovieList
+          movies={nowPlayingMovies.results}
+          label="now-playing"
+          title="Now Playing"
+        />
       )}
-      {popular && <MovieList movies={popular.results} label="latest" />}
+      {popular && (
+        <MovieList
+          movies={popular.results}
+          label="latest"
+          title="Latest Movies"
+        />
+      )}
     </Flex>
   );
 }
