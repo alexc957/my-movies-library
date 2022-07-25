@@ -1,7 +1,7 @@
 import { ChakraProvider } from "@chakra-ui/react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import React from "react";
-import Home from "../pages/Home";
+import Home from "../pages/Home/Home";
 import theme from "../theme";
 
 describe("Home page", () => {
@@ -11,21 +11,21 @@ describe("Home page", () => {
     </ChakraProvider>
   );
   describe("when visiting the top ten movies section", () => {
-    it("must be a top ten movie section with 10 elements", () => {
-      const topTenEls = screen.findAllByLabelText("top-ten");
+    it("must be a most pouplar movies section with 20 elements", () => {
+      const topTenEls = screen.findAllByLabelText("most-popular-item");
       expect(topTenEls).toHaveLength(10);
     });
   });
 
   describe("when visiting the top ten latest movies", () => {
-    it("must be latests movies section with 10 elements", () => {
+    it("must be latests movies section with 20 elements", () => {
       const latestMovies = screen.findAllByLabelText("latest");
       expect(latestMovies).toHaveLength(10);
     });
   });
-  describe("when visiting the upcoming movies section", () => {
-    it("must be an array of 10 latest movies", () => {
-      const latestMovies = screen.findAllByLabelText("latest");
+  describe("when visiting the now playing movies section", () => {
+    it("must be an array of the now playing movies", () => {
+      const latestMovies = screen.findAllByLabelText("now-playing");
       expect(latestMovies).toHaveLength(10);
     });
   });

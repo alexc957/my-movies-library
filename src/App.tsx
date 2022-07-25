@@ -4,7 +4,7 @@ import First from "./components/First";
 import Second from "./components/Second";
 import { Button } from "@chakra-ui/react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
+import Home from "./pages/Home/Home";
 import About from "./pages/About";
 import theme from "./theme";
 import Layout from "./components/Layout/Layout";

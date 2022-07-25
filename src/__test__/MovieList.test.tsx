@@ -20,12 +20,12 @@ describe("Movie list", () => {
     it("it must exists a list of 10 elements rendered in the dom", () => {
       render(
         <ChakraProvider theme={theme}>
-          <MovieList movies={movies} />
+          <MovieList movies={movies} label="movie-item" />
         </ChakraProvider>
       );
 
       const titleEl = screen.getAllByLabelText("movie-item");
-      expect(titleEl).toHaveLength(10);
+      expect(titleEl).toHaveLength(20);
     });
   });
 });
