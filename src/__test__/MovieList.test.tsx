@@ -11,7 +11,7 @@ beforeAll(async () => {
     "https://api.themoviedb.org/3/movie/top_rated?api_key=ed44417f2a0f7f2b9707ead57533289c"
   );
   const data: IResult = await response.json();
-  console.log("data length ", data.results.length);
+
   movies = data["results"] || [];
 });
 
