@@ -1,10 +1,12 @@
 // Generated using webpack-cli https://github.com/webpack/webpack-cli
-
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const WorkboxWebpackPlugin = require("workbox-webpack-plugin");
-
+const webpack = require('webpack'); 
+const fs = require('fs'); // to check if the file exists
+const dotenv = require('dotenv');
 const isProduction = process.env.NODE_ENV == "production";
+const enviroment = process.env.NODE_ENV || "development";
 
 const stylesHandler = "style-loader";
 
@@ -20,8 +22,9 @@ const config = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "index.html",
+      template: "public/index.html",
     }),
+    //new webpack.DefinePlugin({ S:3})
 
   ],
   module: {
@@ -52,6 +55,25 @@ const config = {
 };
 
 module.exports = () => {
+
+  //const currentPath = path.join(__dirname)
+  const basePath = path.join(__dirname,'.env');
+
+  const envPath = basePath+"."+enviroment;
+  console.log('envPath',envPath)
+  const finalPath = fs.existsSync(envPath) ? envPath : basePath;
+  console.log('final path', finalPath)
+  const fileEnv = dotenv.config({path: finalPath}).parsed;
+
+  const envKeys = Object.keys(fileEnv).reduce((prev, next) => {
+    prev[`process.env.${next}`] = JSON.stringify(fileEnv[next]);
+    return prev;
+  }, {});
+
+  config.plugins.push(
+    new webpack.DefinePlugin(envKeys)
+  )
+
   if (isProduction) {
     config.mode = "production";
 

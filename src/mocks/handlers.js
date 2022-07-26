@@ -1,5 +1,5 @@
 import { rest } from "msw";
-import { NOW_PLAYING_MOVIES, POPULAR_MOVIES, TOP_MOVIES_RESULT, UPCOMING_MOVIES } from "./movies";
+import { INDIVIDUAL_MOVIE, NOW_PLAYING_MOVIES, POPULAR_MOVIES, TOP_MOVIES_RESULT, UPCOMING_MOVIES } from "./movies";
 
 export const handlers = [
   rest.get(
@@ -21,6 +21,10 @@ export const handlers = [
 
   rest.get("https://api.themoviedb.org/3/movie/popular",(req,res,ctx)=>{
     return res(ctx.status(200),ctx.json(POPULAR_MOVIES))
+  }),
+
+  rest.get("https://api.themoviedb.org/3/movie/:id",(req, res,ctx)=>{
+    return res(ctx.status(200),ctx.json(INDIVIDUAL_MOVIE))
   })
 
 ];

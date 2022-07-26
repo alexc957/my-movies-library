@@ -9,12 +9,11 @@ type CarosuselProps = {
 
 export default function MovieCarousel({ movies }: CarosuselProps) {
   return (
-    <Container width={"75%"}>
-      <Carousel dynamicHeight={false} width="100%" showThumbs={false}>
+    <Container width={"75%"} maxW="md">
+      <Carousel dynamicHeight={false} showThumbs={false} autoPlay infiniteLoop>
         {movies.map((movie, index) => (
-          <div>
+          <div key={index}>
             <img
-              width={""}
               src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
             />
             <p>{movie.overview}</p>

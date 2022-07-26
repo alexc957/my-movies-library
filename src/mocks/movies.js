@@ -1,3 +1,72 @@
+export const INDIVIDUAL_MOVIE = {
+    "adult": false,
+    "backdrop_path": "/AfvIjhDu9p64jKcmohS4hsPG95Q.jpg",
+    "belongs_to_collection": null,
+    "budget": 18800000,
+    "genres": [
+        {
+            "id": 27,
+            "name": "Horror"
+        },
+        {
+            "id": 53,
+            "name": "Thriller"
+        }
+    ],
+    "homepage": "https://www.theblackphonemovie.com/",
+    "id": 756999,
+    "imdb_id": "tt7144666",
+    "original_language": "en",
+    "original_title": "The Black Phone",
+    "overview": "Finney Shaw, a shy but clever 13-year-old boy, is abducted by a sadistic killer and trapped in a soundproof basement where screaming is of little use. When a disconnected phone on the wall begins to ring, Finney discovers that he can hear the voices of the killer’s previous victims. And they are dead set on making sure that what happened to them doesn’t happen to Finney.",
+    "popularity": 5278.336,
+    "poster_path": "/p9ZUzCyy9wRTDuuQexkQ78R2BgF.jpg",
+    "production_companies": [
+        {
+            "id": 33,
+            "logo_path": "/8lvHyhjr8oUKOOy2dKXoALWKdp0.png",
+            "name": "Universal Pictures",
+            "origin_country": "US"
+        },
+        {
+            "id": 3172,
+            "logo_path": "/kDedjRZwO8uyFhuHamomOhN6fzG.png",
+            "name": "Blumhouse Productions",
+            "origin_country": "US"
+        },
+        {
+            "id": 162439,
+            "logo_path": null,
+            "name": "Crooked Highway",
+            "origin_country": ""
+        }
+    ],
+    "production_countries": [
+        {
+            "iso_3166_1": "US",
+            "name": "United States of America"
+        }
+    ],
+    "release_date": "2022-06-22",
+    "revenue": 114000000,
+    "runtime": 103,
+    "spoken_languages": [
+        {
+            "english_name": "English",
+            "iso_639_1": "en",
+            "name": "English"
+        }
+    ],
+    "status": "Released",
+    "tagline": "Never talk to strangers.",
+    "title": "The Black Phone",
+    "video": false,
+    "vote_average": 7.953,
+    "vote_count": 1119
+}
+
+
+
 export const POPULAR_MOVIES = {
   "page": 1,
   "results": [

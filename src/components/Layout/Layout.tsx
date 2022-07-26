@@ -4,8 +4,9 @@ import NavBar from "./NavBar";
 
 type ChildrenProp = {
   children: React.ReactNode;
+  searchBar?: boolean;
 };
-export default function Layout({ children }: ChildrenProp) {
+export default function Layout({ children, searchBar }: ChildrenProp) {
   return (
     <Grid
       templateAreas={`"header header"
@@ -19,7 +20,7 @@ export default function Layout({ children }: ChildrenProp) {
       fontWeight="bold"
     >
       <GridItem pl="2" bg="primary" area={"header"}>
-        <NavBar />
+        <NavBar searchBar={searchBar} />
       </GridItem>
 
       <GridItem pl="2" area={"main"}>

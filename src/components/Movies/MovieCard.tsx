@@ -1,6 +1,7 @@
 import React from "react";
 import { IMovieResult } from "../../interfaces/movies";
-import { Box } from "@chakra-ui/react";
+import { Box, Link } from "@chakra-ui/react";
+
 export default function MovieCard({
   movie,
   label,
@@ -19,13 +20,16 @@ export default function MovieCard({
       flexDirection="column"
       alignContent={"center"}
       alignItems="center"
-      mx={"2"}
+      mx={"6"}
+      my={"2"}
     >
-      <img
-        width={"200px"}
-        src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
-      />
-      <p>{movie.title}</p>
+      <Link href={`/movie/${movie.id}`} data-cy={movie.title}>
+        <img
+          width={"200px"}
+          src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+        />
+        <p>{movie.title}</p>
+      </Link>
     </Box>
   );
 }
