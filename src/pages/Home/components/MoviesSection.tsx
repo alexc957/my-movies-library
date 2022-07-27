@@ -27,23 +27,26 @@ export default function MoviesSection() {
     >
       {upcomingResults && (
         <MovieList
-          movies={upcomingResults.results}
+          movies={upcomingResults.results.slice(0, 5)}
           label="most-popular-item"
+          path="/list/upcoming"
           title="Upcoming Movies"
         />
       )}
       {nowPlayingMovies && (
         <MovieList
-          movies={nowPlayingMovies.results}
+          movies={nowPlayingMovies.results.slice(0, 5)}
           label="now-playing"
           title="Now Playing"
+          path="/list/now_playing"
         />
       )}
       {popular && (
         <MovieList
-          movies={popular.results}
-          label="latest"
-          title="Latest Movies"
+          movies={popular.results.slice(0, 5)}
+          label="popular"
+          path="/list/popular"
+          title="Popular Movies"
         />
       )}
     </Flex>

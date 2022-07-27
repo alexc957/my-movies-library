@@ -1,13 +1,25 @@
 import { ChakraProvider } from "@chakra-ui/react";
 import React from "react";
-import First from "./components/First";
-import Second from "./components/Second";
-import { Button } from "@chakra-ui/react";
+
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import About from "./pages/About";
 import theme from "./theme";
-import Layout from "./components/Layout/Layout";
+import MovieLIstRouter from "./pages/MovieListPage/MovieLIstRouter";
+import MovieLIstPage from "./pages/MovieListPage/MovieLIstPage";
+
+const ListRoute = () => (
+  <Route path="list" element={<MovieLIstRouter />}>
+    <Route index element={<MovieLIstPage movieParam="now_playing" />} />
+    <Route
+      path="now_playing"
+      element={<MovieLIstPage movieParam="now_playing" />}
+    />
+    <Route path="latest" element={<MovieLIstPage movieParam="latest" />} />
+    <Route path="popular" element={<MovieLIstPage movieParam="popular" />} />
+    <Route path="upcoming" element={<MovieLIstPage movieParam="upcoming" />} />
+  </Route>
+);
 
 export default function App() {
   return (
@@ -15,6 +27,8 @@ export default function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
+          {ListRoute()}
+
           <Route path="about" element={<About />} />
         </Routes>
       </BrowserRouter>

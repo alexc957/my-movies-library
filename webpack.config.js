@@ -14,6 +14,7 @@ const config = {
   entry: "./src/index.tsx",
   output: {
     path: path.resolve(__dirname, "dist"),
+    publicPath: "/"
   },
   devServer: {
     open: true,
@@ -60,9 +61,7 @@ module.exports = () => {
   const basePath = path.join(__dirname,'.env');
 
   const envPath = basePath+"."+enviroment;
-  console.log('envPath',envPath)
   const finalPath = fs.existsSync(envPath) ? envPath : basePath;
-  console.log('final path', finalPath)
   const fileEnv = dotenv.config({path: finalPath}).parsed;
 
   const envKeys = Object.keys(fileEnv).reduce((prev, next) => {
