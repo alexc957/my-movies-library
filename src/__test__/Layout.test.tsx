@@ -1,6 +1,6 @@
 import React from "react";
 
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 
 import { ChakraProvider } from "@chakra-ui/react";
 
@@ -33,6 +33,40 @@ describe("Layout ", () => {
 
       const navbar = screen.getByRole("navigation");
       expect(navbar).toBeInTheDocument();
+    });
+  });
+
+  describe("when typing in the search bar", () => {
+    it("must have a value", () => {
+      render(
+        <ChakraProvider theme={theme}>
+          <Layout searchBar>
+            <p>hello</p>
+          </Layout>
+        </ChakraProvider>
+      );
+      const searchBar = screen.getByRole("input") as HTMLInputElement;
+      fireEvent.change(searchBar, {
+        target: {
+          value: "Batman",
+        },
+      });
+      expect(searchBar.value).toBe("Batman");
+    });
+  });
+
+  describe("when not passing the searchBar to the layout", () => {
+    it("must not exists the search input", () => {
+      render(
+        <ChakraProvider theme={theme}>
+          <Layout>
+            <p>hello</p>
+          </Layout>
+        </ChakraProvider>
+      );
+      const searchBar = screen.queryByRole("input") as HTMLInputElement;
+
+      expect(searchBar).toBeNull();
     });
   });
 });

@@ -21,8 +21,8 @@ describe("clicking on movie", () => {
   });
   context("when clicking on a movie title in the home", () => {
     it("it should navigate to a new page with the movie details", () => {
-      cy.get('[data-ct="title"]').click();
-      cy.url().should("include", "/movie/:id");
+      cy.get('[data-cy="The Black Phone"]').click();
+      cy.url().should("include", "/movie/756999");
     });
   });
 });

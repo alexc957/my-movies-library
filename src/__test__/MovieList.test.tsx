@@ -11,21 +11,21 @@ beforeAll(async () => {
     "https://api.themoviedb.org/3/movie/top_rated?api_key=ed44417f2a0f7f2b9707ead57533289c"
   );
   const data: IResult = await response.json();
-  console.log("data length ", data.results.length);
+
   movies = data["results"] || [];
 });
 
 describe("Movie list", () => {
-  describe("when rendering the ListMovies component with a list of 10 movies", () => {
-    it("it must exists a list of 10 elements rendered in the dom", () => {
+  describe("when rendering the ListMovies component with a list of 5 movies", () => {
+    it("it must exists a list of 5 elements rendered in the dom", async () => {
       render(
         <ChakraProvider theme={theme}>
-          <MovieList movies={movies} />
+          <MovieList movies={movies} label="movie-item" />
         </ChakraProvider>
       );
 
-      const titleEl = screen.getAllByLabelText("movie-item");
-      expect(titleEl).toHaveLength(10);
+      const titleEl = await screen.findAllByTestId("movie-item");
+      expect(titleEl).toHaveLength(5);
     });
   });
 });
