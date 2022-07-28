@@ -7,6 +7,7 @@ import About from "./pages/About";
 import theme from "./theme";
 import MovieLIstRouter from "./pages/MovieListPage/MovieLIstRouter";
 import MovieLIstPage from "./pages/MovieListPage/MovieLIstPage";
+import ErrorBoundaryHandler from "./ErrorBoundaryHandler";
 
 const ListRoute = () => (
   <Route path="list" element={<MovieLIstRouter />}>
@@ -23,15 +24,17 @@ const ListRoute = () => (
 
 export default function App() {
   return (
-    <ChakraProvider theme={theme}>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          {ListRoute()}
+    <ErrorBoundaryHandler>
+      <ChakraProvider theme={theme}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            {ListRoute()}
 
-          <Route path="about" element={<About />} />
-        </Routes>
-      </BrowserRouter>
-    </ChakraProvider>
+            <Route path="about" element={<About />} />
+          </Routes>
+        </BrowserRouter>
+      </ChakraProvider>
+    </ErrorBoundaryHandler>
   );
 }
