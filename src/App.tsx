@@ -20,6 +20,10 @@ const ListRoute = () => (
     <Route path="latest" element={<MovieLIstPage movieParam="latest" />} />
     <Route path="popular" element={<MovieLIstPage movieParam="popular" />} />
     <Route path="upcoming" element={<MovieLIstPage movieParam="upcoming" />} />
+    <Route
+      path="search"
+      element={<MovieLIstPage movieParam="search" isSearchResult />}
+    />
   </Route>
 );
 

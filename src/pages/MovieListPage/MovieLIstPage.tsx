@@ -3,16 +3,25 @@ import React, { useEffect, useState } from "react";
 import Layout from "../../components/Layout/Layout";
 import MovieList from "../../components/Movies/MovieList";
 import useFetch from "../../hooks/useFetch";
+import useSearchStore from "../../hooks/useSearchStore";
 import { IResult } from "../../interfaces/results";
 import Pagination from "./components/Pagination";
 type MovieListPageProps = {
   movieParam: string;
+  isSearchResult?: boolean;
 };
-export default function MovieLIstPage({ movieParam }: MovieListPageProps) {
+export default function MovieLIstPage({
+  movieParam,
+  isSearchResult,
+}: MovieListPageProps) {
   const [page, setPage] = useState<number>(1);
-  const { data, loading } = useFetch<IResult>(
-    `${process.env.BASE_URL}/movie/${movieParam}?api_key=${process.env.API_KEY}&page=${page}`
-  );
+
+  const search = useSearchStore((state) => state.searchValue);
+
+  const url = !isSearchResult
+    ? `${process.env.BASE_URL}/movie/${movieParam}?api_key=${process.env.API_KEY}&page=${page}`
+    : `${process.env.BASE_URL}/search/movie?api_key=${process.env.API_KEY}&page=${page}&query=${search}`;
+  const { data, loading } = useFetch<IResult>(url);
 
   return (
     <Layout searchBar>

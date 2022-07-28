@@ -21,7 +21,7 @@ export default function Movie() {
   );
 
   return (
-    <Layout>
+    <Layout searchBar>
       {loading ? (
         <Spinner />
       ) : (
