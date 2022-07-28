@@ -1,9 +1,10 @@
-import { Center } from "@chakra-ui/react";
+import { Center, VStack } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import Layout from "../../components/Layout/Layout";
 import MovieList from "../../components/Movies/MovieList";
 import useFetch from "../../hooks/useFetch";
 import { IResult } from "../../interfaces/results";
+import Pagination from "./components/Pagination";
 type MovieListPageProps = {
   movieParam: string;
 };
@@ -15,7 +16,16 @@ export default function MovieLIstPage({ movieParam }: MovieListPageProps) {
 
   return (
     <Layout searchBar>
-      {data && <MovieList movies={data.results} label="movie-item" />}
+      {data && (
+        <VStack>
+          <MovieList movies={data.results} label="movie-item" />
+          <Pagination
+            current={page}
+            total={data.total_pages}
+            setPage={setPage}
+          />
+        </VStack>
+      )}
     </Layout>
   );
 }

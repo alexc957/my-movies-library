@@ -1,13 +1,15 @@
 import { Flex, Box, Spacer, Link, Input, Button } from "@chakra-ui/react";
 import React, { useState } from "react";
+import useSearchStore from "../../hooks/useSearchStore";
 
 type NavBarType = {
   searchBar?: boolean;
 };
 
 export default function NavBar({ searchBar }: NavBarType) {
-  const [search, setSearch] = useState<string>("");
-
+  //const [search, setSearch] = useState<string>("");
+  const search = useSearchStore((state) => state.searchValue);
+  const setSearch = useSearchStore((state) => state.setSearchValue);
   return (
     <Flex
       alignItems={"center"}
