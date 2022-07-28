@@ -9,6 +9,7 @@ type FetchReturn<T> = {
 export default function useFetch<T>(url: string): FetchReturn<T | null> {
   const [data, setData] = useState<T | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState(undefined);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -18,6 +19,7 @@ export default function useFetch<T>(url: string): FetchReturn<T | null> {
         const parsedResponse = await response.json();
         setData(parsedResponse as T);
       } catch (e) {
+        setError(e);
         // alert("we could not get the data");
         //console.warn("there was an error while getting the data", e);
       }
@@ -28,5 +30,6 @@ export default function useFetch<T>(url: string): FetchReturn<T | null> {
   return {
     data,
     loading,
+    error,
   };
 }

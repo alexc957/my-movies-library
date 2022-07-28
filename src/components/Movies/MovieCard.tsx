@@ -1,6 +1,7 @@
 import React from "react";
 import { IMovieResult } from "../../interfaces/movies";
-import { Box, Link } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 export default function MovieCard({
   movie,
@@ -23,10 +24,10 @@ export default function MovieCard({
       mx={"6"}
       my={"2"}
     >
-      <Link href={`/movie/${movie.id}`} data-cy={movie.title}>
+      <Link to={`/movie/${movie.id}`} data-cy={movie.title}>
         <img
           width={"200px"}
-          src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+          src={`${process.env.BASE_POSTER_URL}${movie.poster_path}`}
         />
         <p>{movie.title}</p>
       </Link>

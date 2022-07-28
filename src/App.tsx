@@ -8,6 +8,7 @@ import theme from "./theme";
 import MovieLIstRouter from "./pages/MovieListPage/MovieLIstRouter";
 import MovieLIstPage from "./pages/MovieListPage/MovieLIstPage";
 import ErrorBoundaryHandler from "./ErrorBoundaryHandler";
+import Movie from "./pages/Movie/Movie";
 
 const ListRoute = () => (
   <Route path="list" element={<MovieLIstRouter />}>
@@ -30,6 +31,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             {ListRoute()}
+            <Route path="/movie/:id" element={<Movie />} />
 
             <Route path="about" element={<About />} />
           </Routes>
