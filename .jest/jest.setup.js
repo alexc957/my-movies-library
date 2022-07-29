@@ -1,4 +1,4 @@
-import { server } from "./src/mocks/server.js";
+import { server } from "../src/mocks/server.js";
 import 'whatwg-fetch'
 // Establish API mocking before all tests.
 

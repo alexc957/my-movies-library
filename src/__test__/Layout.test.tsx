@@ -7,30 +7,20 @@ import { ChakraProvider } from "@chakra-ui/react";
 import First from "../components/First";
 import Layout from "../components/Layout/Layout";
 import theme from "../theme";
+import { BrowserRouter } from "react-router-dom";
 
 describe("Layout ", () => {
   describe("when passing an jsx component to the layout component", () => {
-    it("must render the jsx component", () => {
+    it("must render the jsx component with a navbar", () => {
       render(
-        <Layout>
-          <p>hello</p>
-        </Layout>
+        <BrowserRouter>
+          <Layout>
+            <p>hello</p>
+          </Layout>
+        </BrowserRouter>
       );
       const helloElement = screen.getByText("hello");
       expect(helloElement).toBeInTheDocument();
-    });
-  });
-
-  describe("when rendering a custom  component ", () => {
-    it("must exists a navbar element", () => {
-      render(
-        <ChakraProvider theme={theme}>
-          <Layout>
-            <First />
-          </Layout>
-        </ChakraProvider>
-      );
-
       const navbar = screen.getByRole("navigation");
       expect(navbar).toBeInTheDocument();
     });
@@ -40,9 +30,11 @@ describe("Layout ", () => {
     it("must have a value", () => {
       render(
         <ChakraProvider theme={theme}>
-          <Layout searchBar>
-            <p>hello</p>
-          </Layout>
+          <BrowserRouter>
+            <Layout searchBar>
+              <p>hello</p>
+            </Layout>
+          </BrowserRouter>
         </ChakraProvider>
       );
       const searchBar = screen.getByRole("input") as HTMLInputElement;
@@ -59,9 +51,11 @@ describe("Layout ", () => {
     it("must not exists the search input", () => {
       render(
         <ChakraProvider theme={theme}>
-          <Layout>
-            <p>hello</p>
-          </Layout>
+          <BrowserRouter>
+            <Layout>
+              <p>hello</p>
+            </Layout>
+          </BrowserRouter>
         </ChakraProvider>
       );
       const searchBar = screen.queryByRole("input") as HTMLInputElement;

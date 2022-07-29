@@ -1,6 +1,7 @@
 import { ChakraProvider, theme } from "@chakra-ui/react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import React from "react";
+import { BrowserRouter } from "react-router-dom";
 import MovieList from "../components/Movies/MovieList";
 import { IMovieResult } from "../interfaces/movies";
 import { IResult } from "../interfaces/results";
@@ -16,16 +17,18 @@ beforeAll(async () => {
 });
 
 describe("Movie list", () => {
-  describe("when rendering the ListMovies component with a list of 5 movies", () => {
-    it("it must exists a list of 5 elements rendered in the dom", async () => {
+  describe("when rendering the ListMovies component with a list of 20 movies", () => {
+    it("it must exists a list of 20 elements rendered in the dom", async () => {
       render(
         <ChakraProvider theme={theme}>
-          <MovieList movies={movies} label="movie-item" />
+          <BrowserRouter>
+            <MovieList movies={movies} label="movie-item" />
+          </BrowserRouter>
         </ChakraProvider>
       );
 
       const titleEl = await screen.findAllByTestId("movie-item");
-      expect(titleEl).toHaveLength(5);
+      expect(titleEl).toHaveLength(20);
     });
   });
 });

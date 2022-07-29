@@ -24,7 +24,10 @@ module.exports = {
 
   setupFilesAfterEnv: [
     "@testing-library/jest-dom/extend-expect",
-    "./jest.setup.js",
+    "<rootDir>/.jest/jest.setup.js",
+  ],
+  setupFiles: [
+'<rootDir>/.jest/setEnvVars.js'
   ],
 
   // Test spec file resolution pattern
@@ -40,6 +43,6 @@ module.exports = {
   moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
   testEnvironment: "jsdom",
   moduleNameMapper: {
-    '^.+\\.(css|less)$': '<rootDir>/styleMock.js'
+    '^.+\\.(css|less)$': '<rootDir>/.jest/styleMock.js'
   }
 };
