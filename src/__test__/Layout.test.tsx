@@ -8,16 +8,17 @@ import First from "../components/First";
 import Layout from "../components/Layout/Layout";
 import theme from "../theme";
 import { BrowserRouter } from "react-router-dom";
+import Wrapper from "../components/Wrapper";
 
 describe("Layout ", () => {
   describe("when passing an jsx component to the layout component", () => {
     it("must render the jsx component with a navbar", () => {
       render(
-        <BrowserRouter>
+        <Wrapper>
           <Layout>
             <p>hello</p>
           </Layout>
-        </BrowserRouter>
+        </Wrapper>
       );
       const helloElement = screen.getByText("hello");
       expect(helloElement).toBeInTheDocument();
@@ -29,13 +30,11 @@ describe("Layout ", () => {
   describe("when typing in the search bar", () => {
     it("must have a value", () => {
       render(
-        <ChakraProvider theme={theme}>
-          <BrowserRouter>
-            <Layout searchBar>
-              <p>hello</p>
-            </Layout>
-          </BrowserRouter>
-        </ChakraProvider>
+        <Wrapper>
+          <Layout searchBar>
+            <p>hello</p>
+          </Layout>
+        </Wrapper>
       );
       const searchBar = screen.getByRole("input") as HTMLInputElement;
       fireEvent.change(searchBar, {
@@ -44,23 +43,6 @@ describe("Layout ", () => {
         },
       });
       expect(searchBar.value).toBe("Batman");
-    });
-  });
-
-  describe("when not passing the searchBar to the layout", () => {
-    it("must not exists the search input", () => {
-      render(
-        <ChakraProvider theme={theme}>
-          <BrowserRouter>
-            <Layout>
-              <p>hello</p>
-            </Layout>
-          </BrowserRouter>
-        </ChakraProvider>
-      );
-      const searchBar = screen.queryByRole("input") as HTMLInputElement;
-
-      expect(searchBar).toBeNull();
     });
   });
 });

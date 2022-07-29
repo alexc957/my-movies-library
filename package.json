@@ -38,6 +38,7 @@
     "serve": "webpack serve",
     "test": "jest",
     "test:watch": "jest --watchAll",
+    "test:coverage": "jest --coverage",
     "serve:locally": "webpack serve --host 0.0.0.0",
     "cypress:open": "npx cypress open",
     "cypress:run": "npx cypress run"

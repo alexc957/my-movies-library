@@ -1,6 +1,7 @@
 import { Flex, IconButton, Box } from "@chakra-ui/react";
 import React from "react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
+import withConsoleLogs from "../../../components/HOC/withLogger";
 
 type PaginationProps = {
   current: number;
@@ -18,15 +19,19 @@ export default function Pagination({
       {current > 1 && (
         <IconButton
           onClick={() => setPage(current - 1)}
-          aria-label="previous-buton"
+          aria-label="previous-button"
+          role={"previous-button"}
           icon={<ChevronLeftIcon />}
         />
       )}
-      <Box mx={"3.5"}>{current}</Box>
+      <Box mx={"3.5"} role={"page-number"}>
+        {current}
+      </Box>
       {current < total && (
         <IconButton
+          aria-label="next-button"
           onClick={() => setPage(current + 1)}
-          aria-label="previous-buton"
+          role="next-button"
           icon={<ChevronRightIcon />}
         />
       )}
