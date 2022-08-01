@@ -3,6 +3,7 @@ import { Box } from "@chakra-ui/react";
 import { IMovieResult } from "../../interfaces/movies";
 import MovieCard from "./MovieCard";
 import { Link } from "react-router-dom";
+import withConsoleLogs from "../HOC/withLogger";
 type MoviesListProps = {
   movies: IMovieResult[];
   label: string;

@@ -29,6 +29,7 @@ export default function Movie() {
           <h3>{data?.title}</h3>
           <HStack width={"100%"}>
             <Image
+              role={"poster-image"}
               width={"40%"}
               src={`${process.env.BASE_POSTER_URL}${data?.poster_path}`}
             />

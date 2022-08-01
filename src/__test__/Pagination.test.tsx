@@ -3,6 +3,7 @@ import React from "react";
 import Wrapper from "../components/Wrapper";
 import Pagination from "../pages/MovieListPage/components/Pagination";
 const handleNext = jest.fn((page: number) => {});
+
 describe("pagination", () => {
   afterEach(() => {
     jest.resetAllMocks();
@@ -50,6 +51,34 @@ describe("pagination", () => {
 
       const pageNumber = screen.getByRole("page-number");
       expect(pageNumber.innerHTML).toBe("3");
+    });
+  });
+
+  describe("when rendering the paginaton component with the current equals to the total of pages", () => {
+    it("must allow navigate to the previus page", () => {
+      let currentPage = 10; //);
+      const handleNext2 = jest
+        .fn()
+        .mockImplementation((page: number) => {
+          currentPage = page;
+          console.log("called ", page);
+        })
+        .mockName("setPage");
+      render(
+        <Wrapper>
+          <Pagination current={currentPage} setPage={handleNext2} total={10} />
+        </Wrapper>
+      );
+
+      const nextEl = screen.queryByRole("next-button");
+      const prevousEl = screen.getByRole("previous-button");
+
+      expect(nextEl).toBeNull();
+      expect(prevousEl).toBeInTheDocument();
+
+      fireEvent.click(prevousEl);
+
+      expect(handleNext2).toHaveBeenCalledWith(9);
     });
   });
 });
