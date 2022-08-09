@@ -20,5 +20,6 @@ export default function withLogger<P, S>(
   return WithLogger;
 }
 function getDisplayName(WrappedComponent: any) {
+  // otro type
   return WrappedComponent.displayName || WrappedComponent.name || "Component";
 }

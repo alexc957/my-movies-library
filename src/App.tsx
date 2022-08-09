@@ -9,6 +9,7 @@ import MovieLIstRouter from "./pages/MovieListPage/MovieLIstRouter";
 import MovieLIstPage from "./pages/MovieListPage/MovieLIstPage";
 import ErrorBoundaryHandler from "./ErrorBoundaryHandler";
 import Movie from "./pages/Movie/Movie";
+import Recommender from "./pages/Recommender/Recommender";
 
 const ListRoute = () => (
   <Route path="list" element={<MovieLIstRouter />}>
@@ -38,6 +39,7 @@ export default function App() {
             <Route path="/movie/:id" element={<Movie />} />
 
             <Route path="about" element={<About />} />
+            <Route path="recommend" element={<Recommender />} />
           </Routes>
         </BrowserRouter>
       </ChakraProvider>

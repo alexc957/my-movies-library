@@ -1,4 +1,4 @@
-import { Flex, Box, Spacer, Input, Button } from "@chakra-ui/react";
+import { Flex, Box, Spacer, Input, Button, Divider } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import useSearchStore from "../../hooks/useSearchStore";
@@ -23,9 +23,16 @@ export default function NavBar({ searchBar }: NavBarType) {
       role={"navigation"}
       justifyContent="space-between"
     >
-      <Link color={"white"} to="/" style={{ color: "white" }}>
-        My Movie Database
-      </Link>
+      <Box width={"100%"}>
+        <Link color={"white"} to="/" style={{ color: "white" }}>
+          My Movie Database
+        </Link>
+        <Spacer />
+
+        {/* <Link color={"white"} to="recommend" style={{ color: "white" }}>
+          Recommender
+  </Link>*/}
+      </Box>
 
       <Box display={"flex"} mr={"10"} justifyContent="space-around">
         {searchBar && (

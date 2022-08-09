@@ -24,7 +24,9 @@ export const handlers = [
   }),
 
   rest.get("https://api.themoviedb.org/3/movie/:id",(req, res,ctx)=>{
-    return res(ctx.status(200),ctx.json(INDIVIDUAL_MOVIE))
+    const movies = [...TOP_MOVIES_RESULT, ...UPCOMING_MOVIES,...NOW_PLAYING_MOVIES,...POPULAR_MOVIES]
+
+    return res(ctx.status(200),ctx.json(movies.find((movie)=> movie.id===req.params.id)))
   })
 
 ];
