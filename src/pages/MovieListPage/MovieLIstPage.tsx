@@ -1,5 +1,5 @@
 import { Center, VStack } from "@chakra-ui/react";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import withLogger from "../../components/HOC/withLogger";
 
 import Layout from "../../components/Layout/Layout";
@@ -32,7 +32,8 @@ export default function MovieLIstPage({
       : `${process.env.BASE_URL}/search/movie?api_key=${process.env.API_KEY}&page=${page}&query=${search}`;
   };
 
-  const url = getUrl();
+  const url =  useMemo(getUrl, [movieParam,page]);
+
 
   const { data, loading } = useFetch<IResult>(url);
 

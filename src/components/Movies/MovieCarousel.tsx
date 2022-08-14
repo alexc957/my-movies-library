@@ -1,5 +1,5 @@
-import { Container } from "@chakra-ui/react";
-import React from "react";
+import { Button, Container } from "@chakra-ui/react";
+import React, { forwardRef, LegacyRef, MutableRefObject, useImperativeHandle, useRef } from "react";
 import { Carousel } from "react-responsive-carousel";
 import { IMovieResult } from "../../interfaces/movies";
 
@@ -7,10 +7,31 @@ type CarosuselProps = {
   movies: IMovieResult[];
 };
 
-export default function MovieCarousel({ movies }: CarosuselProps) {
+function MovieCarousel({ movies }: CarosuselProps, ref: any) {
+  const carouselRef = useRef<any>(null);
+
+  const getCarouselState = () => {
+  
+    if(carouselRef){
+
+      alert(JSON.stringify(carouselRef.current.state))
+    }
+  }
+
+   
+  useImperativeHandle(ref, () => ({
+    state: carouselRef.current?.state
+  }))
+
   return (
     <Container width={"75%"} maxW="md">
-      <Carousel dynamicHeight={false} showThumbs={false} autoPlay infiniteLoop>
+      <Button onClick={getCarouselState}>get Carousel state</Button>
+      <Carousel 
+        ref={carouselRef}
+        dynamicHeight={false} 
+        showThumbs={false} 
+        autoPlay 
+        infiniteLoop>
         {movies.map((movie, index) => (
           <div key={index}>
             <img
@@ -23,3 +44,6 @@ export default function MovieCarousel({ movies }: CarosuselProps) {
     </Container>
   );
 }
+
+
+export default  forwardRef(MovieCarousel)

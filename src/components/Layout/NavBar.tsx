@@ -2,6 +2,7 @@ import { Flex, Box, Spacer, Input, Button, Divider } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import useSearchStore from "../../hooks/useSearchStore";
+import SearchForm from "./SearchForm";
 
 type NavBarType = {
   searchBar?: boolean;
@@ -23,33 +24,20 @@ export default function NavBar({ searchBar }: NavBarType) {
       role={"navigation"}
       justifyContent="space-between"
     >
-      <Box width={"100%"}>
+      <Box width={"72"} display="flex"  mt={"4"}>
         <Link color={"white"} to="/" style={{ color: "white" }}>
           My Movie Database
         </Link>
         <Spacer />
 
-        {/* <Link color={"white"} to="recommend" style={{ color: "white" }}>
+        <Link color={"white"} to="/recommend" style={{ color: "white" }}>
           Recommender
-  </Link>*/}
+        </Link>
       </Box>
 
       <Box display={"flex"} mr={"10"} justifyContent="space-around">
         {searchBar && (
-          <form onSubmit={onSumbit}>
-            <Flex mx={"3"}>
-              <Input
-                bg={"white"}
-                name="search"
-                variant="outline"
-                placeholder="Outline"
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                role="input"
-              />
-              <Button type="submit">Search</Button>
-            </Flex>
-          </form>
+         <SearchForm />
         )}
         <Link
           color={"white"}
