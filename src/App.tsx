@@ -10,6 +10,7 @@ import MovieLIstPage from "./pages/MovieListPage/MovieLIstPage";
 import ErrorBoundaryHandler from "./ErrorBoundaryHandler";
 import Movie from "./pages/Movie/Movie";
 import Recommender from "./pages/Recommender/Recommender";
+import NewMovie from "./pages/NewMovie/NewMovie";
 
 const ListRoute = () => (
   <Route path="list" element={<MovieLIstRouter />}>
@@ -37,6 +38,7 @@ export default function App() {
             <Route path="/" element={<Home />} />
             {ListRoute()}
             <Route path="/movie/:id" element={<Movie />} />
+            <Route path="/movie/new" element={<NewMovie />} />
 
             <Route path="about" element={<About />} />
             <Route path="recommend" element={<Recommender />} />

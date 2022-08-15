@@ -64,3 +64,11 @@ export interface IMovieResult {
   video: boolean;
   vote_average: number;
 }
+
+export interface INewMovie {
+  poster_path: string;
+  adult: boolean;
+  overview: string;
+  title: string;
+  stars: string;
+}
