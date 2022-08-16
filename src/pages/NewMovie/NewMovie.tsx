@@ -18,7 +18,7 @@ const schema = yup
       .min(15, "min lenght is 15")
       .max(200, "max length is 50 ")
       .required("Overview is required"),
-    title: yup.string().max(25, "max length is 25").required(),
+    title: yup.string().max(25, "max length is 25").required("this field is required"),
     stars: yup
       .number()
       .min(0, "min num of stars is 0")

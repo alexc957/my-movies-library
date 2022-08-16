@@ -24,7 +24,7 @@ export default function NavBar({ searchBar }: NavBarType) {
       role={"navigation"}
       justifyContent="space-between"
     >
-      <Box width={"72"} display="flex"  mt={"4"}>
+      <Box width={"96"} display="flex"  mt={"4"}>
         <Link color={"white"} to="/" style={{ color: "white" }}>
           My Movie Database
         </Link>
@@ -32,6 +32,10 @@ export default function NavBar({ searchBar }: NavBarType) {
 
         <Link color={"white"} to="/recommend" style={{ color: "white" }}>
           Recommender
+        </Link>
+        <Spacer />
+        <Link color={"white"} to="/movie/new" style={{ color: "white" }}>
+          New Movie
         </Link>
       </Box>
 
